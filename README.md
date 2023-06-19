@@ -2,7 +2,7 @@
 
 Bu proje, MongoDB veritabanındaki belirli bir koleksiyondaki yeni dokümanları sorgulayarak Apache Kafka'ya bir JSON mesajı olarak üreten ve bu mesajları tüketen basit bir CDC (Değişiklik Verilerini Yakalama) uygulamasıdır.
 
-![Proje Diagramı](proje_diagrami.png)
+![![image](https://github.com/ferhatyyaman/Apache-Kafka-CDC/assets/66822481/99d4c753-1646-4943-9c62-9722ba577da6)
 
 ## Proje Tanımı
 

@@ -33,4 +33,4 @@ Projenin çalıştırılması için aşağıdaki gereksinimlere ihtiyaç vardır
 1. Repoyu yerel makinenize klonlayın:
 
    ```shell
-   git clone https://github.com/kullanici/proje.git
+   git clone https://github.com/ferhatyyaman/Apache-Kafka-CDC

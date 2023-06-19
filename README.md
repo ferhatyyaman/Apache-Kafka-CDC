@@ -1,72 +1,71 @@
-# Apache Kafka ile Basit CDC Uygulaması
+# Simple CDC Application with Apache Kafka
 
-Bu proje, MongoDB veritabanındaki belirli bir koleksiyondaki yeni dokümanları sorgulayarak Apache Kafka'ya bir JSON mesajı olarak üreten ve bu mesajları tüketen basit bir CDC (Değişiklik Verilerini Yakalama) uygulamasıdır.
+This project is a simple Change Data Capture (CDC) application that queries new documents in a specific collection in MongoDB and produces them as JSON messages to Apache Kafka, which are then consumed by another application.
 
+## Project Description
 
+The project consists of two applications developed in the programming language of your choice:
 
-## Proje Tanımı
+1. Message Producer Application (App A): This application queries a specific collection in MongoDB every 10 seconds and detects newly added documents since its last run. It then sends the new document as a JSON message to Apache Kafka.
 
-Proje, seçtiğiniz bir programlama diliyle geliştirilmiş iki uygulamadan oluşmaktadır:
+2. Message Consumer Application (App B): This application consumes messages from Apache Kafka and prints them to the console. The application runs in three copies and consumes messages concurrently.
 
-1. Mesaj Üreten Uygulama (A Uygulaması): Bu uygulama, 10 saniyede bir MongoDB veritabanındaki belirli bir koleksiyonu sorgular ve önceki çalışmasından sonra eklenen yeni dokümanları tespit eder. Ardından, yeni dokümanı JSON mesajı olarak Apache Kafka'ya gönderir.
+The project also involves setting up an environment using Docker, which includes both applications and Apache Kafka. Docker images will be created using a Dockerfile and run using Docker Compose.
 
-2. Mesaj Tüketen Uygulama (B Uygulaması): Bu uygulama, Apache Kafka'dan aldığı mesajları konsola yazdırır. Bu uygulama, üç kopya olarak çalışır ve mesajları eş zamanlı olarak tüketir.
+## Project Diagram
 
-Proje ayrıca Docker kullanılarak iki uygulama ve Apache Kafka'yı içeren bir ortamın oluşturulmasını da içermektedir. Docker imajları, bir Dockerfile kullanılarak oluşturulacak ve Docker Compose ile çalıştırılacaktır.
+A diagram representing the project structure is shown below:
 
-## Proje Diagramı
-
-Proje yapısını aşağıdaki şekilde gösteren bir diagram:
-
-
-
-## Gereksinimler
-
-Projenin çalıştırılması için aşağıdaki gereksinimlere ihtiyaç vardır:
-
-- Programlama Dilinin ve Sürümünün belirtilmesi
-- MongoDB veritabanı bağlantısı için gereken bilgiler
-- Apache Kafka bağlantısı için gereken bilgiler
-
-   ## Kurulum ve Çalıştırma
-
-Uygulamaları oluşturmak ve çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
-
-**1. Projeyi Kopyalayın:**
-
-İlk olarak, projeyi GitHub'dan kopyalamanız gerekmektedir. Aşağıdaki komutu kullanarak projeyi yerel makinenize klonlayabilirsiniz:
-
-```shell
-   git clone https://github.com/ferhatyyaman/Apache-Kafka-CDC
+```
+![](./image/diagram.png)
 ```
 
-**2. Proje Dizinine Girin:**
+## Requirements
 
-Klonlama işlemi tamamlandıktan sonra, projenin olduğu dizine gidin:
+The following requirements are needed to run the project:
+
+- Specification of the programming language and its version.
+- MongoDB connection details.
+- Apache Kafka connection details.
+
+## Installation and Execution
+
+You can follow the steps below to build and run the applications:
+
+**1. Clone the Project:**
+
+First, you need to clone the project from GitHub. You can clone the project to your local machine using the following command:
+
+```shell
+git clone https://github.com/ferhatyyaman/Apache-Kafka-CDC
+```
+
+**2. Navigate to the Project Directory:**
+
+Once the cloning is complete, navigate to the project directory:
 
 ```
 cd Apache-Kafka-CDC
 ```
 
-**3. Docker İmajlarını Oluşturun ve Servisleri Çalıştırın:**
+**3. Build Docker Images and Run the Services:**
 
-Docker Compose kullanarak Docker imajlarını oluşturabilir ve uygulama servislerini çalıştırabilirsiniz. Aşağıdaki komutu kullanarak Docker Compose'u çalıştırın:
+You can use Docker Compose to build the Docker images and run the application services. Run the following command to start Docker Compose:
 
 ```
 docker-compose up --build
 ```
 
-Bu komut, projede tanımlanan servisleri oluşturacak ve başlatacaktır. İmajların oluşturulması biraz zaman alabilir. İşlem tamamlandığında, uygulamalar çalışır durumda olacak ve veri akışı başlayacaktır.
+This command will build the services defined in the project and start them. Building the images may take some time. Once completed, the applications will be up and running, and data flow will begin.
 
-**4. Veri Akışını Başlatın:**
+**4. Start the Data Flow:**
 
-Veri akışını sağlamak için bir terminal açın ve proje dizininde olduğunuzdan emin olun. Ardından, aşağıdaki komutu girerek veri üreticisini başlatabilirsiniz:
+To initiate the data flow, open a terminal and make sure you are in the project directory. Then, enter the following command to start the data producer:
 
 ```
 python kafka-producer.py
 ```
 
-Bu komut, MongoDB veritabanındaki belirli bir koleksiyondan yeni dokümanları sorgulayacak ve bu dokümanları JSON mesajları olarak Apache Kafka'ya gönderecektir.
+This command will query new documents from a specific collection in MongoDB and send them as JSON messages to Apache Kafka.
 
-Bu adımları takip ettikten sonra, veri akışını hem terminalde gözlemleyebilir hem de Apache Kafka ve MongoDB üzerindeki değişiklikleri kontrol edebilirsiniz.
-
+After following these steps, you can observe the data flow in the terminal and monitor the changes in Apache Kafka and MongoDB.

@@ -18,7 +18,7 @@ Proje ayrıca Docker kullanılarak iki uygulama ve Apache Kafka'yı içeren bir 
 
 Proje yapısını aşağıdaki şekilde gösteren bir diagram:
 
-![image](https://github.com/ferhatyyaman/Apache-Kafka-CDC/assets/66822481/99d4c753-1646-4943-9c62-9722ba577da6)
+
 
 ## Gereksinimler
 

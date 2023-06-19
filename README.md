@@ -28,9 +28,45 @@ Projenin çalıştırılması için aşağıdaki gereksinimlere ihtiyaç vardır
 - MongoDB veritabanı bağlantısı için gereken bilgiler
 - Apache Kafka bağlantısı için gereken bilgiler
 
-## Kurulum ve Çalıştırma
+   ## Kurulum ve Çalıştırma
 
-1. Repoyu yerel makinenize klonlayın:
+Uygulamaları oluşturmak ve çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
 
-   ```shell
+**1. Projeyi Kopyalayın:**
+
+İlk olarak, projeyi GitHub'dan kopyalamanız gerekmektedir. Aşağıdaki komutu kullanarak projeyi yerel makinenize klonlayabilirsiniz:
+
+```shell
    git clone https://github.com/ferhatyyaman/Apache-Kafka-CDC
+```
+
+**2. Proje Dizinine Girin:**
+
+Klonlama işlemi tamamlandıktan sonra, projenin olduğu dizine gidin:
+
+```
+cd BasicKafkaCDCProject
+```
+
+**3. Docker İmajlarını Oluşturun ve Servisleri Çalıştırın:**
+
+Docker Compose kullanarak Docker imajlarını oluşturabilir ve uygulama servislerini çalıştırabilirsiniz. Aşağıdaki komutu kullanarak Docker Compose'u çalıştırın:
+
+```
+docker-compose up --build
+```
+
+Bu komut, projede tanımlanan servisleri oluşturacak ve başlatacaktır. İmajların oluşturulması biraz zaman alabilir. İşlem tamamlandığında, uygulamalar çalışır durumda olacak ve veri akışı başlayacaktır.
+
+**4. Veri Akışını Başlatın:**
+
+Veri akışını sağlamak için bir terminal açın ve proje dizininde olduğunuzdan emin olun. Ardından, aşağıdaki komutu girerek veri üreticisini başlatabilirsiniz:
+
+```
+python kafka-producer.py
+```
+
+Bu komut, MongoDB veritabanındaki belirli bir koleksiyondan yeni dokümanları sorgulayacak ve bu dokümanları JSON mesajları olarak Apache Kafka'ya gönderecektir.
+
+Bu adımları takip ettikten sonra, veri akışını hem terminalde gözlemleyebilir hem de Apache Kafka ve MongoDB üzerindeki değişiklikleri kontrol edebilirsiniz.
+

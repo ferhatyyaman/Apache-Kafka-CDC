@@ -17,7 +17,7 @@ The project also involves setting up an environment using Docker, which includes
 A diagram representing the project structure is shown below:
 
 ```
-
+[image](https://github.com/ferhatyyaman/Apache-Kafka-CDC/blob/main/image/Diagram.png)
 ```
 
 ## Requirements

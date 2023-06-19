@@ -45,7 +45,7 @@ Uygulamaları oluşturmak ve çalıştırmak için aşağıdaki adımları izley
 Klonlama işlemi tamamlandıktan sonra, projenin olduğu dizine gidin:
 
 ```
-cd BasicKafkaCDCProject
+cd Apache-Kafka-CDC
 ```
 
 **3. Docker İmajlarını Oluşturun ve Servisleri Çalıştırın:**

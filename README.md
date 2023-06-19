@@ -17,7 +17,7 @@ The project also involves setting up an environment using Docker, which includes
 A diagram representing the project structure is shown below:
 
 ```
-![](./image/diagram.png)
+
 ```
 
 ## Requirements
